@@ -1,0 +1,10 @@
+{
+  "name": "Webpage Blocker",
+  "description": "Go through an extra filter when accessing website of your choosing, and see a reason why",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "hello.html",
+    "default_icon": "vadericon.png"
+  }
+}

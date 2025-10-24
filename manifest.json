@@ -6,5 +6,23 @@
   "action": {
     "default_popup": "hello.html",
     "default_icon": "vadericon.png"
-  }
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "background" : {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "block.html",
+        "block.css",
+        "block.js"
+      ],
+      "matches": [ "<all_urls>" ]
+    }
+  ]
 }

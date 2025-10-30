@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .centered-title {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+    </style>
+    <title>Options Page</title>
+</head>
+<body>
+    
+    <h1 class="centered-title">Options Page</h1>
+
+    <div class="container">
+        
+        <div class="column" id="left-column">
+            <h2>Currently Blocked</h2>
+            <table id="blocked-sites-table">
+                <thead>
+                    <tr>
+                        <th>Site URL</th>
+                        <th>Reason</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    </tbody>
+            </table>
+        </div>
+        
+        <div class="column" id="right-column">
+            <h2>Add new site</h2>
+            <form id="add-site-form">
+                <div>
+                    <label for="site-url">Site URL (e.g., youtube.com):</label>
+                    <input type="text" id="site-url" required>
+                </div>
+                <br>
+                <div>
+                    <label for="site-reason">Reason for blocking:</label>
+                    <input type="text" id="site-reason" required>
+                </div>
+                <br>
+                <button type="submit">Add Site</button>
+            </form>
+        </div>
+
+    </div>
+
+
+<script src="options.js"></script>
+</body>
+</html>

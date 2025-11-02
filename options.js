@@ -47,4 +47,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
 
+    tableBody.addEventListener('click', (event) => {
+        if (event.target.classList.contains('delete-btn')) {
+            const siteUrlToDelete = event.target.getAttribute('data-url');
+            chrome.storage.local.get('blockedSites', ({ blockedSites }) => {
+                const updatedSites = blockedSites.filter(site => site.url !== siteUrlToDelete);
+                chrome.storage.local.set({blockedSites: updatedSites}, () => {
+                    renderTable();
+                });
+            });
+        }
+    });
+
 });

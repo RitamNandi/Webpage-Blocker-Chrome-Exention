@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        :root {
+            --bg: #050D31;
+            --card-accent: #D13D87;
+            --text-light: #f5f5f5;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text-light);
+        }
+
+        .centered-title {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #D13D87, #7129b7);
+            border: none;
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 500px;
+            height: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+
+        button:hover {
+            background: linear-gradient(135deg, #3d7dd1, #8a3cde);
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+    </style>
+    <title>Blocked</title>
+    <link rel="icon" type="image/png" href="vadericon.png">
+</head>
+<body>
+    <h1 class="centered-title">You have been blocked</h1>
+    <p id = "block-reason" style="text-align: center; font-size: 1.2rem;">Reason: </p>
+    <br>
+    <button id="proceed-button" type="submit">Continue anyways</button>
+    <script src="block.js"></script>
+</body>
+
+        

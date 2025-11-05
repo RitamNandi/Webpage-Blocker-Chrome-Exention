@@ -1,9 +1,70 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <style>
+        :root {
+            --bg: #050D31;
+            --text-light: #f5f5f5;
+        }
 
-    <body>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text-light);
+        }
 
-        <h1>Darth Vader PNG</h1>
-        <img src="vader.png" alt="Darth Vader" width = "600" height = "400">
-    </body>
+        .centered-title {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-light);
+        }
 
-</html>
+        button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #D13D87, #7129b7);
+            border: none;
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 500px;
+            height: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        a.source-link {
+            text-align: center;
+            color: #2aba8c;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            display: block;
+            margin: 20px auto;
+        }
+
+        a.source-link:hover {
+            color: #ff4500;
+            text-decoration: underline;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #3d7dd1, #8a3cde);
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="centered-title">Website Stopper Extension</h1>
+    <a class="source-link" href="https://www.github.com/RitamNandi/Webpage-Blocker-Chrome-Exention">Click to view source code</a>
+    <button id="options-page" type="submit">Settings</button>
+</body>

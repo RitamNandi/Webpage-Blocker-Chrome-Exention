@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderTable() {
         // need to do DOM manipulation here to build out the table
         chrome.storage.local.get('blockedSites', ({ blockedSites }) => {
+            const siteList = blockedSites || [];
             tableBody.innerHTML = ''; // clear what we have in the table now
-            blockedSites.forEach(site => {
+            siteList.forEach(site => {
                 // make HTML string
                 const row = `
                     <tr>
@@ -36,12 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // need to update the blockedSites storage
         chrome.storage.local.get('blockedSites', ({ blockedSites }) => {
-            blockedSites.push({url: newURL, reason: newReason});
-            chrome.storage.local.set({blockedSites: blockedSites}, () => {
+            const siteList = blockedSites || [];
+            siteList.push({url: newURL, reason: newReason});
+            chrome.storage.local.set({blockedSites: siteList}, () => {
                 renderTable();
                 // reset the values
                 urlInput.value = '';
-                newReason.value = '';
+                reasonInput.value = '';
             })
         });
 
@@ -51,7 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target.classList.contains('delete-btn')) {
             const siteUrlToDelete = event.target.getAttribute('data-url');
             chrome.storage.local.get('blockedSites', ({ blockedSites }) => {
-                const updatedSites = blockedSites.filter(site => site.url !== siteUrlToDelete);
+                const siteList = blockedSites || [];
+                const updatedSites = siteList.filter(site => site.url !== siteUrlToDelete);
                 chrome.storage.local.set({blockedSites: updatedSites}, () => {
                     renderTable();
                 });

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded' , () => {
         const urlObject = new URL(targetUrl);
         const hostName = urlObject.hostname.replace('www.' , '');
 
-        chrome.storage.session.get('tempWhiteList', ({tempWhiteList}) => {
+        chrome.storage.local.get('tempWhiteList', ({tempWhiteList}) => {
             const passList = tempWhiteList || {};
             passList[hostName] = true; // we check this in background.js
             

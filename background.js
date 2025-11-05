@@ -5,9 +5,9 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         const newHostname = newUrl.hostname.replace('www', '');
 
         // edge case: this URL might be in the bypass list for now
-        chrome.storage.session.get('tempWhiteList', ({tempWhiteList}) => {
+        chrome.storage.local.get('tempWhiteList', ({tempWhiteList}) => {
 
-            const passList = {} | tempWhiteList; // default to empty array
+            const passList = tempWhiteList || {}; // default to empty array
             // we should probably keep the pass list as single use
 
             if (passList[newHostname]) {
@@ -17,9 +17,9 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             }
 
             // done with any white listing stuff, so now just need to check against the blockList
-            chrome.storage.session.get('blockedSites', ({blockedSites}) => {
+            chrome.storage.local.get('blockedSites', ({blockedSites}) => {
 
-                const blockList = {} | blockedSites; // default to empty array
+                const blockList = blockedSites || []; // default to empty array
                 
                 const matchingSite = blockList.find(site => newHostname.includes(site.url))
 

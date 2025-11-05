@@ -12,6 +12,9 @@
             font-family: "Segoe UI", Roboto, sans-serif;
             background: var(--bg);
             color: var(--text-light);
+            padding-bottom: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         .centered-title {
@@ -32,14 +35,15 @@
             font-weight: bold;
             cursor: pointer;
             transition: background 0.3s;
-            width: 500px;
-            height: 100px;
+            width: 300px;
+            height: 50px;
             display: block;
             margin: 0 auto;
         }
 
         a.source-link {
             text-align: center;
+            font-size: 1.2rem;
             color: #2aba8c;
             text-decoration: none;
             font-weight: bold;
@@ -66,6 +70,6 @@
 <body>
     <h1 class="centered-title">Website Stopper Extension</h1>
     <a class="source-link" href="https://www.github.com/RitamNandi/Webpage-Blocker-Chrome-Exention">Click to view source code</a>
-    <button id="options-page" type="submit">Settings</button>
+    <button id="options-page" type="button">Settings</button>
     <script src="popup.js"></script>
 </body>

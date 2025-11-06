@@ -2,10 +2,10 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 
     if (changeInfo.url) {
         const newUrl = new URL(changeInfo.url);
-        const newHostname = newUrl.hostname.replace('www', '');
+        const newHostname = newUrl.hostname.replace('www.', '');
 
         // edge case: this URL might be in the bypass list for now
-        chrome.storage.local.get('tempWhiteList', ({tempWhiteList}) => {
+        chrome.storage.session.get('tempWhiteList', ({tempWhiteList}) => {
 
             const passList = tempWhiteList || {}; // default to empty array
             // we should probably keep the pass list as single use

@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     <td>${site.url}</td>
                     <td>${site.reason}</td>
                     <td>
-                        <button class="delete-btn" data-url="${site.url}">🗑️</button>
+                        <button class="delete-btn" data-url="${site.url}">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     </td>
                     </tr>
                 `;
@@ -50,8 +52,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     tableBody.addEventListener('click', (event) => {
-        if (event.target.classList.contains('delete-btn')) {
-            const siteUrlToDelete = event.target.getAttribute('data-url');
+        const deleteButton = event.target.closest('.delete-btn');
+
+        if (deleteButton) {
+            const siteUrlToDelete = deleteButton.getAttribute('data-url');
             chrome.storage.local.get('blockedSites', ({ blockedSites }) => {
                 const siteList = blockedSites || [];
                 const updatedSites = siteList.filter(site => site.url !== siteUrlToDelete);
